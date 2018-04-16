@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航栏菜单的设计与实现</title>
+    <style>
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            float: left;
+        }
+        /* 表示超链接未访问和已访问状态 
+            只有将display设置为块级元素才能设置宽度*/
+        a:link, a:visited {
+            display: block;
+            width: 100px;
+            font-weight: bold;
+            color: white;
+            background-color: #5AF;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+        } 
+        /* 表示鼠标悬浮和单击未释放的状态 */
+        a:hover, a:active {
+            background-color: #006FDD;
+        }
+    </style>
+</head>
+<body>
+   <h3>导航栏菜单的设计与实现</h3> 
+   <hr>
+   <nav>
+       <ul>
+           <li><a href="#">头条</a></li>
+           <li><a href="#">娱乐</a></li>
+           <li><a href="#">热点</a></li>
+           <li><a href="#">体育</a></li>
+           <li><a href="#">财经</a></li>
+           <li><a href="#">科技</a></li>
+       </ul>
+   </nav>
+</body>
+</html>

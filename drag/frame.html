@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5拖放API之图片相框效果</title>
+    <link rel="stylesheet" href="css/photoframe.css">
+</head>
+<body>
+    <h3>H5拖放API之图片相框效果</h3>
+    <hr />
+    <!-- 可放置文件区 -->
+    <div id="container" ondragover="allowDrog(event)" ondrop="fileDrop(event)">请将图片拖放至此处</div>
+    <br />
+    <!-- 带相框的展示区 -->
+    <div id="output"></div>
+</body>
+<script>
+    function allowDrog(e) {
+        e.preventDefault();
+    }
+    function fileDrop(e) {
+        e.preventDefault();
+        var output = document.getElementById("output");
+        output.innerHTML="";
+        var files = e.dataTransfer.files;
+        for( var i = 0, f; f = files[i]; i++) {
+            var imgURL = window.webkitURL.createObjectURL(f);
+            var img = document.createElement("img");
+            img.setAttribute("src", imgURL);
+            img.setAttribute("width", "450");
+            img.setAttribute("height", "300");
+
+            var photo = document.createElement("div");
+            photo.setAttribute("class", "photoframe");
+            photo.appendChild(img);
+
+            var img2 = document.createElement("img");
+            img2.setAttribute("class", "block");
+            photo.appendChild(img2);
+            output.appendChild(photo);
+
+            // 显示图片信息
+            var status = document.createElement("div");
+            var lastModified = f.lastModifiedDate;
+            var lastModifiedStr = lastModified ? lastModified.toLocalDateString() 
+                + ' ' + lastModified.toLocalTimeString() : 'n/a';
+            status.innerHTML = '<strong>' + f.name + '</strong> (' + (f.type || 'n/a') 
+                + ')<br>大小：' + f.size + '字节<br>修改时间：' + lastModifiedStr;
+            
+            output.appendChild(status);
+        }
+    }
+</script>
+</html>

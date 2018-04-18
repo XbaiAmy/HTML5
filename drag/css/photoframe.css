@@ -1,0 +1,27 @@
+#container {
+    width: 200px;
+    height: 50px;
+    border: 1px dashed;
+    text-align: center;
+    line-height: 50px;
+}
+#output {
+    float: left;
+    margin: 10px;
+    text-align: center;
+    width: 500px;
+}
+.photoframe {
+    background: url(../image/photoframe.jpg);
+    width: 500px;
+    height: 350px;
+    text-align: center;
+    float: left;
+}
+.block {
+    width: 0;
+    height: 100%;
+}
+img {
+    vertical-align: middle;
+}

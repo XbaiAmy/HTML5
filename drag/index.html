@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>H5拖放API的学习</title>
+    <link rel="stylesheet" href="css/recycle.css">
+</head>
+<body>
+    <h3>HTML5拖放API之回收站效果</h3>
+    <hr>
+    <!-- 文件展示域 -->
+    <div id="container">
+        <div id="file1" class="folder" draggable="true" ondragstart="drag(event)">文件一</div>
+        <div id="file2" class="folder" draggable="true" ondragstart="drag(event)">文件二</div>
+        <div id="file3" class="folder" draggable="true" ondragstart="drag(event)">文件三</div>
+        <div id="file4" class="folder" draggable="true" ondragstart="drag(event)">文件四</div>
+    </div>
+    <!-- 回收站域 -->
+    <div id="recycle" ondragover="allowDrop(event)" ondrop="drop(event)"></div>
+</body>
+<script>
+   function allowDrop(event) {
+       // 解禁当前元素为可放置被拖拽元素的区域
+       event.preventDefault();
+    }
+    function drag(event) {
+        // 设置传递的内容为被拖曳元素的id名称，数据类型为纯文本类型
+        event.dataTransfer.setData("text/plain", event.target.id);
+    }
+    function drop(event) {
+        // 解禁当前元素为可放置被拖拽元素的区域
+        event.preventDefault();
+        // 获取当前被放置元素的元素id名称
+        var id = event.dataTransfer.getData("text");
+        // 根据id名称获取元素对象
+        var folder = document.getElementById(id);
+        // 获取文件夹并删除该元素对象
+        document.getElementById("container").removeChild(folder);
+    }
+</script>
+</html>

@@ -1,0 +1,23 @@
+#container {
+    border: 1px solid;
+    width: 500px;
+    height: 450px;
+    float: left;
+}
+#recycle {
+    width: 400px;
+    height: 400px;
+    float: left;
+    text-align: center;
+    background: url(../image/recycle.jpg) no-repeat;
+    margin: 30px;
+}
+.folder {
+    text-align: center;
+    float: left;
+    margin: 20px;
+    background: url(../image/folder.jpg) no-repeat;
+    width: 200px;
+    height: 160px;
+    line-height: 160px;
+}
